@@ -14,14 +14,14 @@ app.init = () => {
     this._router = undefined;
 }
 
-app.createRouter = () => {
+app.createRouter = function createRouter() {
     if (!this._router)
         this._router = 'router-place-holder' // <TODO>
 }
 
 // create each api method for the app object to call
-methods.forEach((method) => {
-    app[method] = (path) => {
+methods.forEach(function (method) {
+    app[method] = function (path) {
         this.createRouter()
 
         let route = this._router.route(path)
