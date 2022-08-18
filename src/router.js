@@ -1,3 +1,7 @@
+/*
+A one per application prototype of router to handle the routing logic
+*/
+
 let setPrototypeOf = require('setprototypeof')
 let Route = require('')
 let Layer = require('')
@@ -16,7 +20,7 @@ let proto = module.exports = (options) => {
     router._params = []
     router.caseSensitive = opts.caseSensitive
     router.mergeParams = opts.mergeParams
-    router.string = opt.strict
+    router.strict = opt.strict
     router.stack = []
 
     return router
