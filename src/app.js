@@ -6,7 +6,7 @@ let slice = Array.prototype.slice // to slice through array-like objects
 let app = exports = module.exports = {}
 
 // initializing the app to starting state
-app.init = () => {
+app.init = function () {
     this.cache = {}
     this.engines = {}
     this.settings = {}
