@@ -6,3 +6,5 @@ Installed packages:
 - npm install methods
 - npm install --save setprototypeof
 - npm install array-flatten --save
+- npm i http
+- npm i merge-descriptors

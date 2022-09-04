@@ -4,7 +4,7 @@ Hold information for the routes and layers, including the handlers for a given p
 
 let methods = require('methods')
 let flatten = require('array-flatten')
-let Layer = require('')
+let Layer = require('./layer')
 
 // initialize the Route object
 function Route(path) {

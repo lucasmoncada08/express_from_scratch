@@ -3,8 +3,8 @@ A one per application prototype of router to handle the routing logic
 */
 
 let setPrototypeOf = require('setprototypeof')
-let Route = require('')
-let Layer = require('')
+let Route = require('./route')
+let Layer = require('./layer')
 
 // extending prototype of router to proto
 let proto = module.exports = (options) => {
@@ -27,8 +27,8 @@ let proto = module.exports = (options) => {
 }
 
 proto.route = function route(path) {
-    let route = new Route() // implement
-    let layer = new Layer() // implement
+    let route = new Route(path) 
+    let layer = new Layer(path, {}, route.dispatch.bind(route)) // implement
 
     layer.route = route
     
