@@ -2,7 +2,7 @@
 Hold the path and function references to execute when a request for a path is recieved
 */
 
-function Layer (path, options, fn) {
+function Layer(path, options, fn) {
     if (!(this instanceof Layer)) {
         return new Layer(path, options, fn)
     }
@@ -27,3 +27,5 @@ Layer.prototype.handle_request = function handle(req, res, next) {
         console.error(err)
     }
 }
+
+module.exports = Layer;

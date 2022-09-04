@@ -1,5 +1,5 @@
 let methods = require('methods');
-let Router = require('');
+let Router = require('./router');
 let http = require('http');
 
 let slice = Array.prototype.slice; // to slice through array-like objects
@@ -20,12 +20,17 @@ app.createRouter = function createRouter() {
         this._router = Router({});
 }
 
-app.listen = function listen(args) {
+app.listen = function listen() {
     let server = http.createServer(this);
-    return server.listen.apply(server, args);
+    return server.listen.apply(server, arguments);
 }
 
-// create each api method for the app object to call
+app.handle = function handle(req, res, out) {
+    let router = this._router;
+    router.handle(req, res);
+}
+
+// create each api method for the app object to call (runs when imported)
 methods.forEach(function (method) {
     app[method] = function (path) {
         this.createRouter();

@@ -4,6 +4,7 @@ Hold information for the routes and layers, including the handlers for a given p
 
 let methods = require('methods')
 let flatten = require('array-flatten')
+// import { flatter } from "array-flatten";
 let Layer = require('./layer')
 
 // initialize the Route object
@@ -18,7 +19,7 @@ Route.prototype.dispatch = (req, res, done) => {}
 
 methods.forEach(function (method) {
     Route.prototype[method] = function() {
-        let handles = flatten(Array.prototype.slice.call(arguments))
+        let handles = flatten.flatten(Array.prototype.slice.call(arguments))
 
         for (let i=0; i < handles.length; i++) {
             let handle = handles[i]
